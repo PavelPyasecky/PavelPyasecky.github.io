@@ -47,6 +47,7 @@
 .item__caption {
   height: 100px;
   padding: 30px 0 0 0;
+  overflow: hidden;
 }
 
 .item__price {
