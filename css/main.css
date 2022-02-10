@@ -1,0 +1,39 @@
+:root {
+    --main-bg-color: black;
+    --card-bg-color: white;
+    --card-hieght: 20vh;
+}
+
+body {
+    background: var(--main-bg-color);
+}
+
+.content-wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+.card {
+    flex: 1 1 21%;
+    height: var(--card-hieght);
+    margin: 5px;
+    z-index: 2;
+}
+
+.card:hover,
+.card:focus {
+    cursor: pointer;
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em rgba(0, 0, 0, 0);
+    z-index: 1;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #ffc0cb;}
+}
+
+.card_primary-style {
+    background: center / cover no-repeat url("../img/memory.jpeg"), var(--card-bg-color);
+}
