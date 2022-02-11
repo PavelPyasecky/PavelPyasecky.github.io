@@ -1,11 +1,52 @@
+/* Rules for sizing the icon. */
+.material-icons.md-18 { font-size: 18px; }
+.material-icons.md-24 { font-size: 24px; }
+.material-icons.md-36 { font-size: 36px; }
+.material-icons.md-48 { font-size: 48px; }
+.material-icons.md-fnt { font-size: calc(var(--counter-font-size) * 1.5); }
+
+/* Rules for using icons as black on a light background. */
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
+.material-icons.md-dark.md-inactive { color: rgba(0, 0, 0, 0.26); }
+
+/* Rules for using icons as white on a dark background. */
+.material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-light.md-inactive { color: rgba(255, 255, 255, 0.3); }
+
 :root {
     --main-bg-color: black;
     --card-bg-color: white;
     --card-hieght: 20vh;
+    --counter-font-size: 2em;
 }
 
 body {
     background: var(--main-bg-color);
+}
+
+.header {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+}
+
+.move-counter {
+    color: white;
+    font-size: var(--counter-font-size);
+    font-family: Stardos Stencil;
+}
+
+.refresh-btn {
+    background-color: black;
+    color: white;
+    border: none;
+    height: fit-content;
+}
+
+.refresh-btn:hover {
+    cursor: pointer;
 }
 
 .content-wrapper{
