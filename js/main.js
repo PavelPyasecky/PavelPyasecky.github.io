@@ -1,6 +1,6 @@
 window.CARD_CONTAINER_ID_NAME = "game";
 window.CARD_CLASS_NAME = "card";
-window.CARD_STYLE_CLASS_NAMES = "card_primary-style";
+window.CARD_STYLE_CLASS_NAMES = "card_primary-style";	// class for additional styling
 window.CARD_PICKED_CLASS_NAME = "picked";
 window.CARD_MATCHED_CLASS_NAME = "matched";
 window.CARD_DATA_ID_CLASS_NAME = "data-id";
@@ -35,12 +35,14 @@ window.BUTTON_REFRESH_ID_NAME = "refresh";
 
 		setupCards() {
 	        this._buildHTML();  // initialize this.html property
-	        this.container.insertAdjacentHTML("afterbegin", this.html);
+	        this.container.innerHTML = this.html;
             this.cardsArrayDOM = document.getElementsByClassName(window.CARD_CLASS_NAME);
             for(let element of this.cardsArrayDOM) {
-                element.addEventListener('click', this._handlerCardClick);
+                element.addEventListener('click',
+					(event) => {this._handlerCardClick(event);});
             }
-            this.refreshButton.addEventListener("click", this._handlerRefreshClick);
+            this.refreshButton.addEventListener("click",
+				(event) => {this._handlerRefreshClick(event);});
         }
 
         _handlerRefreshClick(event) {
@@ -49,28 +51,33 @@ window.BUTTON_REFRESH_ID_NAME = "refresh";
         }
 
         _handlerCardClick(event) {
-	        let card = event.target;
-            let cardDataId = card.attributes.getNamedItem(window.CARD_DATA_ID_CLASS_NAME);
-            let choseCards = document.getElementsByClassName(window.CARD_PICKED_CLASS_NAME);
-	        const isPicked = card.hasClass(window.CARD_PICKED_CLASS_NAME)
-	        const isMatched = card.hasClass(window.CARD_MATCHED_CLASS_NAME)
+	        let card = event.target.closest('.card');
+            let cardDataId = +card.attributes.getNamedItem(window.CARD_DATA_ID_CLASS_NAME).value;
+	        const isPicked = card.classList.contains(window.CARD_PICKED_CLASS_NAME)
+	        const isMatched = card.classList.contains(window.CARD_MATCHED_CLASS_NAME)
 	        if(isPicked || isMatched || this.gameIsPaused) {
 	            return null
 	        }
 
-	        card.addClass(window.CARD_PICKED_CLASS_NAME);
+	        card.classList.add(window.CARD_PICKED_CLASS_NAME);
+	        let choseCards = document.getElementsByClassName(window.CARD_PICKED_CLASS_NAME);
 	        if(!this.cardIdGuess) {
 	            this.cardIdGuess = cardDataId;
-            } else if(this.cardIdGuess == cardDataId) {
-	            choseCards.map((element) => element.addClass(window.CARD_MATCHED_CLASS_NAME));
+            } else if(this.cardIdGuess === cardDataId) {
+				this._addClassName(choseCards, window.CARD_MATCHED_CLASS_NAME)
+				this.gameIsPaused = true;
+				setTimeout(() => {
+	            	this._removeClassName(choseCards, window.CARD_PICKED_CLASS_NAME);
+	                this.gameIsPaused = false;
+                }, 600);
 	            this.cardIdGuess = null;
             } else {
 	            this.cardIdGuess = null;
 	            this.gameIsPaused = true;
 	            setTimeout(() => {
-	                choseCards.removeClass(window.CARD_PICKED_CLASS_NAME);
+	            	this._removeClassName(choseCards, window.CARD_PICKED_CLASS_NAME);
 	                this.gameIsPaused = false;
-                }, 600)
+                }, 600);
             }
 	        let matchedCards = document.getElementsByClassName(window.CARD_MATCHED_CLASS_NAME);
 	        if(matchedCards.length === this.cardsArray.length) {
@@ -78,18 +85,34 @@ window.BUTTON_REFRESH_ID_NAME = "refresh";
             }
         }
 
+        _removeClassName(collection, className) {
+  			collection[0].classList.remove(className);
+  			if (collection[0]) {
+  				this._removeClassName(collection, className);
+			}
+		}
+
+		_addClassName(collection, className) {
+  			for(let element of collection) {
+  				element.classList.add(className);
+			}
+		}
+
         win() {
 	        this.gameIsPaused = true;
 	        setTimeout(() => {
 	            this._showModal();
-            }, 1000)
+            }, 4000)
         }
 
         _showModal() {
-
+			console.log("Modal message!");
+			this.shuffleCards();
+			this.setupCards();
         }
 
         _buildHTML() {
+	    	this.html = "";
 	        this.cardsArray.map((element) => {
 	            let attributes = `${window.CARD_DATA_ID_CLASS_NAME}=${element.id}`;
 	            let classes = `${window.CARD_CLASS_NAME} ${window.CARD_STYLE_CLASS_NAMES}`;
