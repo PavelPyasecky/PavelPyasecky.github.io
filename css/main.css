@@ -16,7 +16,7 @@
 :root {
     --main-bg-color: black;
     --card-bg-color: white;
-    --card-hieght: 20vh;
+    --card-hieght: 25vh;
     --counter-font-size: 2em;
 }
 
@@ -54,13 +54,82 @@ body {
     flex-flow: row wrap;
     justify-content: space-around;
     align-items: stretch;
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 500px;
 }
 
 .card {
     flex: 1 1 21%;
     height: var(--card-hieght);
     margin: 5px;
-    z-index: 2;
+    z-index: 3;
+    perspective: 500px;
+    position: relative;
+
+    transform-style: preserve-3d;
+    transition: 0.4s ease-in-out;
+    background: white;
+}
+
+@keyframes match-animation {
+	0% {
+		background: #bcffcc;
+	}
+	100% {
+		background: white;
+	}
+}
+
+.card.picked {
+    transform: rotateY(180deg);
+}
+
+.card.matched {
+    transform: rotateY(180deg);
+}
+
+.card.picked.matched {
+    transform: rotateY(180deg);
+    animation: 1s match-animation ease-in-out;
+    animation-delay: .4s;
+}
+
+.card .front {
+    backface-visibility: hidden;
+    transform: rotateY(-180deg);
+    overflow: hidden;
+
+    position: absolute;
+    top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+}
+
+.card .back {
+    backface-visibility: hidden;
+    transform: rotateX(0);
+    overflow: hidden;
+    position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
+}
+
+img {
+    position: absolute;
+    top: 50%;
+}
+
+.front img,
+.back img {
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    box-sizing: content-box;
+    transform: translate(0, -50%);;
 }
 
 .card:hover,
@@ -71,10 +140,11 @@ body {
     z-index: 1;
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 #ffc0cb;}
+.card.matched:hover,
+.card.matched:focus {
+    cursor: auto;
 }
 
-.card_primary-style {
-    background: center / cover no-repeat url("../img/memory.jpeg"), var(--card-bg-color);
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 #ffc0cb;}
 }
