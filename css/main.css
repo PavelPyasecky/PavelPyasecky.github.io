@@ -16,7 +16,11 @@
 :root {
     --main-bg-color: black;
     --card-bg-color: white;
-    --card-hieght: 25vh;
+    --card-hieght: 30vh;
+    --pulse-anim-color: #ffc0cb;
+    --refresh-btn-text-color: white;
+    --refresh-btn-textbg-color: black;
+    --counter-text-color: white;
     --counter-font-size: 2em;
 }
 
@@ -33,14 +37,14 @@ body {
 }
 
 .move-counter {
-    color: white;
+    color: var(--counter-text-color);
     font-size: var(--counter-font-size);
     font-family: Stardos Stencil;
 }
 
 .refresh-btn {
-    background-color: black;
-    color: white;
+    background-color: var(--refresh-btn-textbg-color);
+    color: var(--refresh-btn-text-color);
     border: none;
     height: fit-content;
 }
@@ -74,10 +78,10 @@ body {
 
 @keyframes match-animation {
 	0% {
-		background: #bcffcc;
+		background: var(--main-bg-color);
 	}
 	100% {
-		background: white;
+		background: var(--card-bg-color);
 	}
 }
 
@@ -146,5 +150,5 @@ img {
 }
 
 @keyframes pulse {
-  0% { box-shadow: 0 0 0 0 #ffc0cb;}
+  0% { box-shadow: 0 0 0 0 var(--pulse-anim-color);}
 }
