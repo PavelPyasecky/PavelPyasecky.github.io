@@ -18,6 +18,7 @@
     --card-bg-color: white;
     --card-hieght: 30vh;
     --pulse-anim-color: #ffc0cb;
+    --match-anim-color: #bcffcc;
     --refresh-btn-text-color: white;
     --refresh-btn-textbg-color: black;
     --counter-text-color: white;
@@ -78,7 +79,7 @@ body {
 
 @keyframes match-animation {
 	0% {
-		background: var(--main-bg-color);
+		background: var(--match-anim-color);
 	}
 	100% {
 		background: var(--card-bg-color);
