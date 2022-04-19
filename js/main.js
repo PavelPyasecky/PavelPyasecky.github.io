@@ -126,65 +126,45 @@ window.BUTTON_REFRESH_ID_NAME = "refresh";
 
 	const cards = [
 		{
-			name: "php",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/php-logo_1.png",
+			name: "Toyota",
+			img_src: "https://www.carlogos.org/car-logos/toyota-logo.png",
 			id: 1,
 		},
 		{
-			name: "css3",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/css3-logo.png",
+			name: "Volkswagen",
+			img_src: "https://www.carlogos.org/car-logos/volkswagen-logo.png",
 			id: 2
 		},
 		{
-			name: "html5",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/html5-logo.png",
+			name: "Daimler",
+			img_src: "https://www.carlogos.org/car-logos/daimler-logo.png",
 			id: 3
 		},
 		{
-			name: "jquery",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/jquery-logo.png",
+			name: "Ford Motor",
+			img_src: "https://www.carlogos.org/car-logos/ford-logo.png",
 			id: 4
 		},
 		{
-			name: "javascript",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/js-logo.png",
+			name: "Honda",
+			img_src: "https://www.carlogos.org/car-logos/honda-logo.png",
 			id: 5
 		},
 		{
-			name: "node",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/nodejs-logo.png",
+			name: "Acura",
+			img_src: "https://www.carlogos.org/car-logos/acura-logo.png",
 			id: 6
 		},
 		{
-			name: "photoshop",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/photoshop-logo.png",
+			name: "Nissan",
+			img_src: "https://www.carlogos.org/car-logos/nissan-logo.png",
 			id: 7
 		},
 		{
-			name: "python",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/python-logo.png",
+			name: "Mitsubishi",
+			img_src: "https://www.carlogos.org/car-logos/mitsubishi-logo.png",
 			id: 8
-		},
-		{
-			name: "rails",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/rails-logo.png",
-			id: 9
-		},
-		{
-			name: "sass",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sass-logo.png",
-			id: 10
-		},
-		{
-			name: "sublime",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/sublime-logo.png",
-			id: 11
-		},
-		{
-			name: "wordpress",
-			img_src: "https://s3-us-west-2.amazonaws.com/s.cdpn.io/74196/wordpress-logo.png",
-			id: 12
-		},
+		}
 	];
 
 	let game = new Memory(cards);
