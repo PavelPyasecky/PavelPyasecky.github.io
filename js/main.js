@@ -6,6 +6,7 @@ window.CARD_MATCHED_CLASS_NAME = "matched";
 window.CARD_DATA_ID_CLASS_NAME = "data-id";
 window.CARD_BACKGROUND_IMG_SOURCE = "img/memory.jpeg";
 window.BUTTON_REFRESH_ID_NAME = "refresh";
+window.MOVE_COUNTER_ID_NAME = "moves";
 
 
 (function(){
@@ -13,6 +14,7 @@ window.BUTTON_REFRESH_ID_NAME = "refresh";
 	class Memory {
 
 	    constructor(cards) {
+			this.moves = 0;
             this.container = document.getElementById(window.CARD_CONTAINER_ID_NAME);
             this.refreshButton = document.getElementById(window.BUTTON_REFRESH_ID_NAME);
             this.cardsArray = cards.concat(cards);
@@ -46,6 +48,8 @@ window.BUTTON_REFRESH_ID_NAME = "refresh";
         }
 
         _handlerRefreshClick(event) {
+			this.moves = 0;
+			this.setMoves()
 			this.shuffleCards();
 			this.setupCards();
         }
@@ -71,7 +75,11 @@ window.BUTTON_REFRESH_ID_NAME = "refresh";
 	                this.gameIsPaused = false;
                 }, 600);
 	            this.cardIdGuess = null;
+				this.moves += 1;
+				this.setMoves()
             } else {
+				this.moves += 1;
+				this.setMoves()
 	            this.cardIdGuess = null;
 	            this.gameIsPaused = true;
 	            setTimeout(() => {
@@ -84,6 +92,11 @@ window.BUTTON_REFRESH_ID_NAME = "refresh";
 	            this.win();
             }
         }
+
+		setMoves() {
+			let moves = document.getElementById(window.MOVE_COUNTER_ID_NAME);
+			moves.innerHTML = this.moves;
+		}
 
         _removeClassName(collection, className) {
   			collection[0].classList.remove(className);
@@ -99,6 +112,8 @@ window.BUTTON_REFRESH_ID_NAME = "refresh";
 		}
 
         win() {
+			this.moves = 0;
+			this.setMoves()
 	        this.gameIsPaused = true;
 	        setTimeout(() => {
 	            this._showModal();
