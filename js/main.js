@@ -142,42 +142,42 @@ window.MOVE_COUNTER_ID_NAME = "moves";
 	const cards = [
 		{
 			name: "Toyota",
-			img_src: "https://www.carlogos.org/car-logos/toyota-logo.png",
+			img_src: "img/45FNDNMrzWj_kxTwAS5bl8-KkX3J6Q2CbPHnmq4WtiKO6PyOU8QD0PBveIUJkY3wm9344ftVxxxDVN1Rb_Mm5alS.jpg",
 			id: 1,
 		},
 		{
 			name: "Volkswagen",
-			img_src: "https://www.carlogos.org/car-logos/volkswagen-logo.png",
+			img_src: "img/dDiTGqXyCsM.jpg",
 			id: 2
 		},
 		{
 			name: "Daimler",
-			img_src: "https://www.carlogos.org/car-logos/daimler-logo.png",
+			img_src: "img/e7DuaIuuxrc.jpg",
 			id: 3
 		},
 		{
 			name: "Ford Motor",
-			img_src: "https://www.carlogos.org/car-logos/ford-logo.png",
+			img_src: "img/EXIRCv-kI9s.jpg",
 			id: 4
 		},
 		{
 			name: "Honda",
-			img_src: "https://www.carlogos.org/car-logos/honda-logo.png",
+			img_src: "img/IjdYtf4VnPs.jpg",
 			id: 5
 		},
 		{
 			name: "Acura",
-			img_src: "https://www.carlogos.org/car-logos/acura-logo.png",
+			img_src: "img/jIb6StR7-WLg-ApBrNkAZaYwSX0KGtZZrJikvJnpXl0JiKCXtscyux_DDLB9oAJ7HDt0spUiuo4MRqDqgPCOBesF.jpg",
 			id: 6
 		},
 		{
 			name: "Nissan",
-			img_src: "https://www.carlogos.org/car-logos/nissan-logo.png",
+			img_src: "img/Np8mcEafPkQ.jpg",
 			id: 7
 		},
 		{
 			name: "Mitsubishi",
-			img_src: "https://www.carlogos.org/car-logos/mitsubishi-logo.png",
+			img_src: "img/q2K7gxKiaLAZ_puP_ZcnIkNr-I30tpkDhsJgTFz5K21P84QqQoo9cWMA2DNQxnPwUBD76iXC1e82fl3VpHXFVdFB.jpg",
 			id: 8
 		}
 	];
